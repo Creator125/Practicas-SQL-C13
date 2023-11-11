@@ -1,0 +1,16 @@
+CREATE TABLE menu(
+	id SERIAL PRIMARY KEY,
+	nombre_plato VARCHAR(100) NOT NULL,
+	descripcion VARCHAR(500) NOT NULL,
+	precio FLOAT NOT NULL
+);
+
+CREATE TABLE clientes(
+	id SERIAL PRIMARY KEY,
+	id_menu BIGINT,
+	nombre VARCHAR(100) NOT NULL,
+	direccion VARCHAR(100) NOT NULL,
+	telefono VARCHAR(14),
+	email VARCHAR(100) NOT NULL,
+	FOREIGN KEY (id_menu) REFERENCES menu(id)
+);
